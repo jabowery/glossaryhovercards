@@ -2,6 +2,8 @@
 
 A lightweight, recursive glossary system with hovercards and mathematical expression rendering. Hover over terms to see their definitions, with full support for nested definitions and LaTeX math rendering.
 
+[Click here to see it in action in demo.html](https://jabowery.github.io/glossaryhovercards/demo.html)
+
 ## Features
 
 - **Recursive Hovercards**: Definitions can contain terms that trigger their own hovercards, creating a stack of definitions
