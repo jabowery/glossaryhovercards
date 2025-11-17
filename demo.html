@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glossary Hovercards Demo</title>
+  
+  <!-- MathJax Configuration -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  
+  <!-- MathJax for rendering mathematical expressions -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #333;
+      border-bottom: 2px solid #333;
+      padding-bottom: 10px;
+    }
+    .content {
+      margin-top: 30px;
+    }
+    dt.term {
+      font-weight: bold;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+    dd.definition {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Glossary with Interactive Hovercards</h1>
+  
+  <div class="content">
+    <p>This page demonstrates the glossary hovercard system. Terms marked with **bold asterisks** are interactive.</p>
+    
+    <h2>Example Definitions</h2>
+    <dl>
+      <dt class="term">Action</dt>
+      <dd class="definition">
+        <p>An *action* is any transformation $A$ acting on a **Structure Table**
+        or **Count Table** that:</p>
+        <p>*GA interpretation:*  
+        An action is a linear operator $A$ on multivectors such that:
+        projectors ($A^2 = A$) implement selection, linking, hiding;  
+        involutions ($A^2 = 1$) implement polarity and time symmetry;  
+        unitaries ($A^\dagger A = 1$) implement reversible evolution;  
+        signed-additive operators respect cancellation of **Empty Parts**.</p>
+        <p>All other entries below are defined as patterns or uses of actions.</p>
+      </dd>
+      
+      <dt class="term">Thing</dt>
+      <dd class="definition">
+        <p>A *thing* is anything that is transformed non-trivially by some
+        **Action**.  
+        Formally: $t$ is a thing iff there exists an action $A$ with $A(t) \neq A(0)$
+        under the induced **Relative Identity**.  
+        GA: any multivector not annihilated by all relevant projectors.</p>
+      </dd>
+      
+      <dt class="term">Discriminator</dt>
+      <dd class="definition">
+        <p>A *discriminator* $x$ is a distinguished action $A_x$ whose effect defines
+        **Relative Identity**.  
+        Two things are identical-for-$x$ if $A_x$ transforms them in the same way.  
+        GA: a chosen family of projectors, involutions, or unitaries encoding the
+        perspective of $x$.</p>
+      </dd>
+      
+      <dt class="term">Structure Table</dt>
+      <dd class="definition">
+        <p>A table containing structural information that can be transformed by an **Action**.</p>
+      </dd>
+      
+      <dt class="term">Count Table</dt>
+      <dd class="definition">
+        <p>A table containing count data that can be operated on by various **Action** operators.</p>
+      </dd>
+      
+      <dt class="term">Empty Parts</dt>
+      <dd class="definition">
+        <p>Components that cancel out under signed-additive operators in the context of an **Action**.</p>
+      </dd>
+      
+      <dt class="term">Relative Identity</dt>
+      <dd class="definition">
+        <p>An equivalence relation defined by a **Discriminator** $x$.
+        Two **Thing**s are considered identical relative to $x$ if they are transformed
+        identically by the discriminator's **Action**.</p>
+      </dd>
+    </dl>
+  </div>
+  
+  <!-- Hidden glossary data (loaded by the script) -->
+  <dl id="glossary-data" style="display: none;">
+    <dt class="term">Action</dt>
+    <dd class="definition">
+      <p>An *action* is any transformation $A$ acting on a **Structure Table**
+      or **Count Table** that:</p>
+      <p>*GA interpretation:*  
+      An action is a linear operator $A$ on multivectors such that:
+      projectors ($A^2 = A$) implement selection, linking, hiding;  
+      involutions ($A^2 = 1$) implement polarity and time symmetry;  
+      unitaries ($A^\dagger A = 1$) implement reversible evolution;  
+      signed-additive operators respect cancellation of **Empty Parts**.</p>
+      <p>All other entries below are defined as patterns or uses of actions.</p>
+    </dd>
+    
+    <dt class="term">Thing</dt>
+    <dd class="definition">
+      <p>A *thing* is anything that is transformed non-trivially by some
+      **Action**.  
+      Formally: $t$ is a thing iff there exists an action $A$ with $A(t) \neq A(0)$
+      under the induced **Relative Identity**.  
+      GA: any multivector not annihilated by all relevant projectors.</p>
+    </dd>
+    
+    <dt class="term">Discriminator</dt>
+    <dd class="definition">
+      <p>A *discriminator* $x$ is a distinguished action $A_x$ whose effect defines
+      **Relative Identity**.  
+      Two things are identical-for-$x$ if $A_x$ transforms them in the same way.  
+      GA: a chosen family of projectors, involutions, or unitaries encoding the
+      perspective of $x$.</p>
+    </dd>
+    
+    <dt class="term">Structure Table</dt>
+    <dd class="definition">
+      <p>A table containing structural information that can be transformed by an **Action**.</p>
+    </dd>
+    
+    <dt class="term">Count Table</dt>
+    <dd class="definition">
+      <p>A table containing count data that can be operated on by various **Action** operators.</p>
+    </dd>
+    
+    <dt class="term">Empty Parts</dt>
+    <dd class="definition">
+      <p>Components that cancel out under signed-additive operators in the context of an **Action**.</p>
+    </dd>
+    
+    <dt class="term">Relative Identity</dt>
+    <dd class="definition">
+      <p>An equivalence relation defined by a **Discriminator** $x$.
+      Two **Thing**s are considered identical relative to $x$ if they are transformed
+      identically by the discriminator's **Action**.</p>
+    </dd>
+  </dl>
+  
+  <!-- Load the glossary hovercards module -->
+  <script src="glossary-hovercards.js"></script>
+</body>
+</html>
