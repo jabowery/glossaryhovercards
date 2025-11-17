@@ -98,7 +98,7 @@ The glossary data must be in a `<dl>` element with `id="glossary-data"`:
 
 ```html
 <dl id="glossary-data" style="display: none;">
-  <dt class="term">Term Name</dt>
+  <dt class="term" data-synonyms="Actions, operation">Action</dt>
   <dd class="definition">
     <p>Definition with **Other Terms** and math $x = y$.</p>
   </dd>
@@ -106,8 +106,22 @@ The glossary data must be in a `<dl>` element with `id="glossary-data"`:
 ```
 
 - **`<dt class="term">`**: Contains the term name (case-insensitive matching)
+- **`data-synonyms`** (optional): Comma-separated list of synonyms for this term
 - **`<dd class="definition">`**: Contains the definition HTML
 - **Hidden**: The glossary data element should be hidden (`display: none`)
+
+#### Synonyms
+
+Add synonyms to handle plural/singular forms and alternative names:
+
+```html
+<dt class="term" data-synonyms="Empty Parts">Empty Part</dt>
+<dd class="definition">
+  <p>A null component in the **Count Table**.</p>
+</dd>
+```
+
+Now hovering over either "Empty Part" or "Empty Parts" will show the same definition. Synonyms are case-insensitive.
 
 #### Term Markup
 

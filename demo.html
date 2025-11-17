@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Glossary Hovercards Demo</title>
+  <title>Tom Etter's Relation Arithmetic Glossary</title>
   
   <!-- MathJax Configuration -->
   <script>
@@ -26,148 +26,519 @@
   <style>
     body {
       font-family: Georgia, serif;
-      max-width: 800px;
+      max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
       line-height: 1.6;
-    }
-    h1 {
       color: #333;
-      border-bottom: 2px solid #333;
+    }
+    
+    h1 {
+      color: #222;
+      border-bottom: 3px solid #333;
       padding-bottom: 10px;
+      margin-bottom: 30px;
     }
-    .content {
-      margin-top: 30px;
+    
+    h2 {
+      color: #444;
+      margin-top: 40px;
+      margin-bottom: 20px;
     }
+    
+    .note {
+      background: #f0f0f0;
+      padding: 15px;
+      border-left: 4px solid #666;
+      margin: 20px 0;
+      font-style: italic;
+    }
+    
     dt.term {
       font-weight: bold;
-      margin-top: 20px;
+      margin-top: 30px;
       font-size: 18px;
+      color: #222;
     }
+    
     dd.definition {
       margin-left: 20px;
       margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    
+    dd.definition p {
+      margin: 12px 0;
+    }
+    
+    dd.definition ol, dd.definition ul {
+      margin: 10px 0;
+      padding-left: 30px;
+    }
+    
+    dd.definition li {
+      margin: 8px 0;
     }
   </style>
 </head>
 <body>
-  <h1>Glossary with Interactive Hovercards</h1>
+  <h1>Tom Etter's Relation Arithmetic Glossary</h1>
   
   <div class="content">
-    <p>This page demonstrates the glossary hovercard system. Terms marked with **bold asterisks** are interactive.</p>
-    
-    <h2>Example Definitions</h2>
-    <dl>
-      <dt class="term">Action</dt>
-      <dd class="definition">
-        <p>An *action* is any transformation $A$ acting on a **Structure Table**
-        or **Count Table** that:</p>
-        <p>*GA interpretation:*  
-        An action is a linear operator $A$ on multivectors such that:
-        projectors ($A^2 = A$) implement selection, linking, hiding;  
-        involutions ($A^2 = 1$) implement polarity and time symmetry;  
-        unitaries ($A^\dagger A = 1$) implement reversible evolution;  
-        signed-additive operators respect cancellation of **Empty Parts**.</p>
-        <p>All other entries below are defined as patterns or uses of actions.</p>
-      </dd>
-      
-      <dt class="term">Thing</dt>
-      <dd class="definition">
-        <p>A *thing* is anything that is transformed non-trivially by some
-        **Action**.  
-        Formally: $t$ is a thing iff there exists an action $A$ with $A(t) \neq A(0)$
-        under the induced **Relative Identity**.  
-        GA: any multivector not annihilated by all relevant projectors.</p>
-      </dd>
-      
-      <dt class="term">Discriminator</dt>
-      <dd class="definition">
-        <p>A *discriminator* $x$ is a distinguished action $A_x$ whose effect defines
-        **Relative Identity**.  
-        Two things are identical-for-$x$ if $A_x$ transforms them in the same way.  
-        GA: a chosen family of projectors, involutions, or unitaries encoding the
-        perspective of $x$.</p>
-      </dd>
-      
-      <dt class="term">Structure Table</dt>
-      <dd class="definition">
-        <p>A table containing structural information that can be transformed by an **Action**.</p>
-      </dd>
-      
-      <dt class="term">Count Table</dt>
-      <dd class="definition">
-        <p>A table containing count data that can be operated on by various **Action** operators.</p>
-      </dd>
-      
-      <dt class="term">Empty Parts</dt>
-      <dd class="definition">
-        <p>Components that cancel out under signed-additive operators in the context of an **Action**.</p>
-      </dd>
-      
-      <dt class="term">Relative Identity</dt>
-      <dd class="definition">
-        <p>An equivalence relation defined by a **Discriminator** $x$.
-        Two **Thing**s are considered identical relative to $x$ if they are transformed
-        identically by the discriminator's **Action**.</p>
-      </dd>
-    </dl>
-  </div>
-  
-  <!-- Hidden glossary data (loaded by the script) -->
-  <dl id="glossary-data" style="display: none;">
-    <dt class="term">Action</dt>
-    <dd class="definition">
-      <p>An *action* is any transformation $A$ acting on a **Structure Table**
-      or **Count Table** that:</p>
-      <p>*GA interpretation:*  
-      An action is a linear operator $A$ on multivectors such that:
-      projectors ($A^2 = A$) implement selection, linking, hiding;  
-      involutions ($A^2 = 1$) implement polarity and time symmetry;  
-      unitaries ($A^\dagger A = 1$) implement reversible evolution;  
-      signed-additive operators respect cancellation of **Empty Parts**.</p>
-      <p>All other entries below are defined as patterns or uses of actions.</p>
-    </dd>
-    
-    <dt class="term">Thing</dt>
-    <dd class="definition">
-      <p>A *thing* is anything that is transformed non-trivially by some
-      **Action**.  
-      Formally: $t$ is a thing iff there exists an action $A$ with $A(t) \neq A(0)$
-      under the induced **Relative Identity**.  
-      GA: any multivector not annihilated by all relevant projectors.</p>
-    </dd>
-    
+  <h2>Glossary Definitions</h2>
+  <p class="note">Hover over <strong>bold terms</strong> to see their definitions.</p>
+  <dl>
     <dt class="term">Discriminator</dt>
     <dd class="definition">
-      <p>A *discriminator* $x$ is a distinguished action $A_x$ whose effect defines
-      **Relative Identity**.  
-      Two things are identical-for-$x$ if $A_x$ transforms them in the same way.  
-      GA: a chosen family of projectors, involutions, or unitaries encoding the
-      perspective of $x$.</p>
+      <p>A *discriminator* $x$ is a structural device that fixes a notion of
+**Relative Identity** and thereby a **World**$(x)$: for any $y,z$,
+the statement $x(y=z)$ is decided solely by how $y,z$ appear in the
+**Structure Tables** and **Count Tables** that $x$ uses. In GA, a
+discriminator is implemented as a chosen family of **Selections** and
+**Linkings** (projection operators) acting on multivectors.</p>
     </dd>
-    
-    <dt class="term">Structure Table</dt>
+
+    <dt class="term">World of a Discriminator</dt>
     <dd class="definition">
-      <p>A table containing structural information that can be transformed by an **Action**.</p>
+      <p>The *world* of a **Discriminator** $x$ is the class of **Things**
+that $x$ can distinguish from itself by some pattern in its **Structure
+Tables**: 
+$$
+{World}(x) = \{ t : x(t=x)\},
+$$
+where $x(t=x)$ is **Relative Identity**. In GA, ${World}(x)$ is the
+set of multivectors not identified with the ``state'' of $x$ under the
+projections determined by $x$.</p>
     </dd>
-    
-    <dt class="term">Count Table</dt>
+
+    <dt class="term">Thing</dt>
     <dd class="definition">
-      <p>A table containing count data that can be operated on by various **Action** operators.</p>
+      <p>A *thing* $t$ is any entity that lies in the **World** of at least one
+**Discriminator**: there exist $x,y$ with $x(t=y)$ under
+**Relative Identity**. Thus, ``thinghood'' is defined by participation in
+some pattern of discrimination. In GA, a thing is any multivector that survives
+non-trivial **Selection** for some discriminator.</p>
     </dd>
-    
-    <dt class="term">Empty Parts</dt>
-    <dd class="definition">
-      <p>Components that cancel out under signed-additive operators in the context of an **Action**.</p>
-    </dd>
-    
+
     <dt class="term">Relative Identity</dt>
     <dd class="definition">
-      <p>An equivalence relation defined by a **Discriminator** $x$.
-      Two **Thing**s are considered identical relative to $x$ if they are transformed
-      identically by the discriminator's **Action**.</p>
+      <p>*Relative identity* is the identity statement read ``$y$ and $z$ are the
+same *for* discriminator $x$''. Formally, $x(y=z)$ holds iff, in all
+**Structure Tables** and **Count Tables** used by $x$, the rows and
+columns containing $y$ and $z$ are interchangeable under the same
+**Linkings** and **Selections**. In GA, $x(y=z)$ means that the
+projection operators implementing $x$ send $y$ and $z$ to the same multivector.</p>
     </dd>
+
+    <dt class="term">Quine Identity</dt>
+    <dd class="definition">
+      <p>Given a single binary relation $R$ whose extension is encoded in a
+**Structure Table**, the *Quine identity* $Q_R$ is the **Relative
+Identity** induced solely by the way elements appear in the rows and columns of
+that table. Concretely, $Q_R(x=y)$ holds iff $x$ and $y$ occur in exactly the
+same positions within the **Structure Table** (same incident rows and
+columns) and remain interchangeable under all **Selections** and
+**Linkings** generated from $R$. In GA, $Q_R$ identifies terms whose
+associated $R$-operators act identically on all multivectors.</p>
+    </dd>
+
+    <dt class="term">Intrinsic Identity (of a predicate / system)</dt>
+    <dd class="definition">
+      <p>The *intrinsic identity* of a primitive predicate (or of an axiom system)
+is the finest **Relative Identity** obtained by closing the relevant Quine
+identities $Q_R$ under all **Linkings**, **Selections** and
+**Structural Evolution Operators** that are allowed by the system. Two
+**Things** are intrinsically identical if every such structurally permitted
+transformation preserves $Q_R(x=y)$ for all predicates $R$ in the language. In
+GA, intrinsic identity is the equivalence of terms generated by all definable
+operators in the chosen model.</p>
+    </dd>
+
+    <dt class="term">Structure Table</dt>
+    <dd class="definition">
+      <p>A *structure table* is a **Count Table** whose range has been
+canonically indexed so that only structural relations between rows and columns
+matter. It is the basic carrier of structure on which **Selections**,
+**Linkings**, **Hidings**, and **Structural Evolution Operators**
+act. In GA, a structure table corresponds to a fixed choice of basis for
+multivectors representing the same structural pattern.</p>
+    </dd>
+
+    <dt class="term">Count Table</dt>
+    <dd class="definition">
+      <p>A *count table* is an extension represented as rows, columns, and integer
+counts (possibly **Negative Counts**), so that multiple identical
+relationships are combined into a single row with a total count. Count tables
+support **Empty Pairs**, **Interference**, and the normalization to
+**Density Count Matrices**. In GA, a count table is a multivector whose
+coefficients are these integer counts.</p>
+    </dd>
+
+    <dt class="term">Density Count Matrix</dt>
+    <dd class="definition">
+      <p>A *density count matrix* is a count matrix derived from a **Count
+Table** by appropriate normalization (typically by total non-empty count), so
+that it can be used to assign ``structural probabilities'' to link values. It is
+the object that evolves under **Structural Evolution Operators** and is
+constrained by **Structural Unitarity** and **Past--Future
+Symmetry**. In GA, it is the density operator built from multivectors whose
+coefficients come from count tables.</p>
+    </dd>
+
+    <dt class="term">Negative Count</dt>
+    <dd class="definition">
+      <p>A *negative count* is an entry $-n$ in a **Count Table**, understood
+only as part of a pattern of **Empty Pairs** and **Interference**.
+Negative counts cannot appear in isolation in a **Proper** structure, but
+only in combinations that can be cancelled or transformed by
+**Structural Evolution Operators**. In GA, a negative count is a negative
+coefficient on a blade in the multivector.</p>
+    </dd>
+
+    <dt class="term">Empty Pair</dt>
+    <dd class="definition">
+      <p>An *empty pair* is a pair of rows in a **Count Table** with counts
+$n$ and $-n$ that together form a net-zero contribution to all
+**Selections**, **Linkings**, and **Shape**. A finite union of
+empty pairs that yields net zero counts on all rows is an *empty part*.
+Adding an empty part to any structure does not change its **Relative
+Identities**, **Worlds**, or **Shape**. In GA, an empty part is a
+multivector that is identically zero, built from terms $B + (-B)$.</p>
+    </dd>
+
+    <dt class="term">Interference</dt>
+    <dd class="definition">
+      <p>*Interference* is the phenomenon that occurs when **Negative Counts**
+and positive counts in a **Count Table** combine into **Empty
+Pairs**, thereby changing the pattern of non-empty rows under
+**Selections** and **Linkings** without altering **Shape**. In
+GA, interference is just addition of multivectors in which some blades cancel.</p>
+    </dd>
+
+    <dt class="term">Shape</dt>
+    <dd class="definition">
+      <p>The *shape* of a **Structure Table** is the class of all tables that
+can be obtained from it by permutations of rows, columns, and value indices
+that preserve the pattern of **Count Tables**, **Empty Parts**,
+**Relative Identities**, and **Relation-numbers**. Thus, shape is
+the global structural invariant of a table under all allowed relabelings. In
+GA, shape is the orbit of a multivector under the automorphism group that
+preserves all structural operations. (In Principia Mathematica this was *incorrectly* called **Relation Number** which is, in geometric analogy, congruence rather than mere similarity of shapes.).</p>
+    </dd>
+
+    <dt class="term">Relation-number</dt>
+    <dd class="definition">
+      <p>The *relation-number* of a part of a **Structure Table** is the
+number of distinct occurrences of that part in the same **Shape** when we
+apply all permutations that preserve **Relative Identity** and the
+**Count Table** structure. It measures structured recurrence of parts
+within a shape. In GA, a relation-number is the size of the orbit of a
+sub-multivector under the automorphisms that fix the ambient shape.</p>
+    </dd>
+
+    <dt class="term">Selection</dt>
+    <dd class="definition">
+      <p>A *selection* is an operation that takes a **Structure Table** and
+designates some of its rows and columns as *foreground*, leaving the rest
+as *background*. Selections generate the frames of a **Structural
+Time** sequence and determine which parts of a structure a **Discriminator**
+actually uses to fix **Relative Identity**. In GA, selections are
+projectors onto subspaces spanned by chosen blades.</p>
+    </dd>
+
+    <dt class="term">Linking</dt>
+    <dd class="definition">
+      <p>*Linking* is the operation that imposes equality conditions between
+columns (or rows) of one or more **Structure Tables**, by deleting all
+rows that violate these equalities and then re-indexing the resulting
+**Count Table**. Linking thus creates joint structures and defines the
+``present'' interface between past and future in **Structural Time**. In
+GA, linking is projection onto the subspace where linked indices coincide.</p>
+    </dd>
+
+    <dt class="term">Hiding</dt>
+    <dd class="definition">
+      <p>*Hiding* is the operation that removes columns or rows that have been used
+in **Linking** but are no longer of interest to a given
+**Discriminator**. Hiding preserves **Relative Identity** on the
+remaining variables while marginalizing out the hidden ones, within the same
+**Shape**. In GA, hiding corresponds to partial trace or projection that
+forgets certain indices.</p>
+    </dd>
+
+    <dt class="term">Structural Time</dt>
+    <dd class="definition">
+      <p>*Structural time* is the ordering of **Selections**, **Linkings**
+and **Hidings** applied to **Structure Tables** and **Density
+Count Matrices**, rather than an external parameter. A *dynamic sequence*
+is a finite or infinite chain of such operations, possibly governed by a
+**Structural Evolution Operator**. In GA, structural time is encoded by
+the composition order of projectors and linear operators on multivectors.</p>
+    </dd>
+
+    <dt class="term">Structural Evolution Operator</dt>
+    <dd class="definition">
+      <p>A *structural evolution operator* $T$ is a map that sends **Structure
+Tables** and their corresponding **Density Count Matrices** to new ones in a
+way that respects **Shape**, **Relative Identity**, and the
+**Empty Part** bookkeeping. When $T$ is invertible and satisfies
+**Structural Unitarity**, it generates reversible **Structural Time**.
+In GA, $T$ is a linear operator (often unitary) acting on the space of
+multivectors and their density operators.</p>
+    </dd>
+
+    <dt class="term">Structural Unitarity</dt>
+    <dd class="definition">
+      <p>A *structurally unitary* evolution is one in which a **Structural
+Evolution Operator** $T$ preserves the total ``count-mass'' and the normalization
+of **Density Count Matrices**, i.e.\ it preserves all structural
+probabilities. Structural unitarity thus ties the reversible part of
+**Structural Time** to invariants of **Shape** and **Relative
+Identity**. In GA, structural unitarity is realized by norm-preserving linear
+operators (unitary or orthogonal) on the state space.</p>
+    </dd>
+
+    <dt class="term">Past--Future Symmetry</dt>
+    <dd class="definition">
+      <p>A system has *past--future symmetry* when its **Structural Time**
+evolution admits a **Structural Evolution Operator** $T$ and an inverse
+$T^{-1}$ such that the corresponding **Density Count Matrices** and
+**Relative Identities** are invariant under reversing the order of
+applications of $T$ (modulo **Empty Parts**). In this domain, quantum-like
+**Interference** and **Structural Unitarity** dominate. In GA, this
+is realized when the dynamics is given by a unitary family $T(t)$ and its
+adjoint $T(t)^{-1}$, with symmetry under time reversal.</p>
+    </dd>
+
   </dl>
+</div>
+
+  
+  <!-- Hidden glossary data (loaded by glossary-hovercards.js) -->
+  <dl id="glossary-data" style="display: none;">
+  <dt class="term" data-synonyms="Discriminators">Discriminator</dt>
+  <dd class="definition">
+    <p>A *discriminator* $x$ is a structural device that fixes a notion of
+**Relative Identity** and thereby a **World**$(x)$: for any $y,z$,
+the statement $x(y=z)$ is decided solely by how $y,z$ appear in the
+**Structure Tables** and **Count Tables** that $x$ uses. In GA, a
+discriminator is implemented as a chosen family of **Selections** and
+**Linkings** (projection operators) acting on multivectors.</p>
+  </dd>
+
+  <dt class="term" data-synonyms="World, World of a Discriminators">World of a Discriminator</dt>
+  <dd class="definition">
+    <p>The *world* of a **Discriminator** $x$ is the class of **Things**
+that $x$ can distinguish from itself by some pattern in its **Structure
+Tables**: 
+$$
+{World}(x) = \{ t : x(t=x)\},
+$$
+where $x(t=x)$ is **Relative Identity**. In GA, ${World}(x)$ is the
+set of multivectors not identified with the ``state'' of $x$ under the
+projections determined by $x$.</p>
+  </dd>
+
+  <dt class="term" data-synonyms="Things">Thing</dt>
+  <dd class="definition">
+    <p>A *thing* $t$ is any entity that lies in the **World** of at least one
+**Discriminator**: there exist $x,y$ with $x(t=y)$ under
+**Relative Identity**. Thus, ``thinghood'' is defined by participation in
+some pattern of discrimination. In GA, a thing is any multivector that survives
+non-trivial **Selection** for some discriminator.</p>
+  </dd>
+
+  <dt class="term" data-synonyms="Relative Identities">Relative Identity</dt>
+  <dd class="definition">
+    <p>*Relative identity* is the identity statement read ``$y$ and $z$ are the
+same *for* discriminator $x$''. Formally, $x(y=z)$ holds iff, in all
+**Structure Tables** and **Count Tables** used by $x$, the rows and
+columns containing $y$ and $z$ are interchangeable under the same
+**Linkings** and **Selections**. In GA, $x(y=z)$ means that the
+projection operators implementing $x$ send $y$ and $z$ to the same multivector.</p>
+  </dd>
+
+  <dt class="term" data-synonyms="Quine Identities">Quine Identity</dt>
+  <dd class="definition">
+    <p>Given a single binary relation $R$ whose extension is encoded in a
+**Structure Table**, the *Quine identity* $Q_R$ is the **Relative
+Identity** induced solely by the way elements appear in the rows and columns of
+that table. Concretely, $Q_R(x=y)$ holds iff $x$ and $y$ occur in exactly the
+same positions within the **Structure Table** (same incident rows and
+columns) and remain interchangeable under all **Selections** and
+**Linkings** generated from $R$. In GA, $Q_R$ identifies terms whose
+associated $R$-operators act identically on all multivectors.</p>
+  </dd>
+
+  <dt class="term" data-synonyms="Intrinsic Identity (of a predicate / system)s">Intrinsic Identity (of a predicate / system)</dt>
+  <dd class="definition">
+    <p>The *intrinsic identity* of a primitive predicate (or of an axiom system)
+is the finest **Relative Identity** obtained by closing the relevant Quine
+identities $Q_R$ under all **Linkings**, **Selections** and
+**Structural Evolution Operators** that are allowed by the system. Two
+**Things** are intrinsically identical if every such structurally permitted
+transformation preserves $Q_R(x=y)$ for all predicates $R$ in the language. In
+GA, intrinsic identity is the equivalence of terms generated by all definable
+operators in the chosen model.</p>
+  </dd>
+
+  <dt class="term" data-synonyms="Structure Tables">Structure Table</dt>
+  <dd class="definition">
+    <p>A *structure table* is a **Count Table** whose range has been
+canonically indexed so that only structural relations between rows and columns
+matter. It is the basic carrier of structure on which **Selections**,
+**Linkings**, **Hidings**, and **Structural Evolution Operators**
+act. In GA, a structure table corresponds to a fixed choice of basis for
+multivectors representing the same structural pattern.</p>
+  </dd>
+
+  <dt class="term" data-synonyms="Count Tables">Count Table</dt>
+  <dd class="definition">
+    <p>A *count table* is an extension represented as rows, columns, and integer
+counts (possibly **Negative Counts**), so that multiple identical
+relationships are combined into a single row with a total count. Count tables
+support **Empty Pairs**, **Interference**, and the normalization to
+**Density Count Matrices**. In GA, a count table is a multivector whose
+coefficients are these integer counts.</p>
+  </dd>
+
+  <dt class="term" data-synonyms="Density Count Matrices, Density Count Matrixes">Density Count Matrix</dt>
+  <dd class="definition">
+    <p>A *density count matrix* is a count matrix derived from a **Count
+Table** by appropriate normalization (typically by total non-empty count), so
+that it can be used to assign ``structural probabilities'' to link values. It is
+the object that evolves under **Structural Evolution Operators** and is
+constrained by **Structural Unitarity** and **Past--Future
+Symmetry**. In GA, it is the density operator built from multivectors whose
+coefficients come from count tables.</p>
+  </dd>
+
+  <dt class="term" data-synonyms="Negative Counts">Negative Count</dt>
+  <dd class="definition">
+    <p>A *negative count* is an entry $-n$ in a **Count Table**, understood
+only as part of a pattern of **Empty Pairs** and **Interference**.
+Negative counts cannot appear in isolation in a **Proper** structure, but
+only in combinations that can be cancelled or transformed by
+**Structural Evolution Operators**. In GA, a negative count is a negative
+coefficient on a blade in the multivector.</p>
+  </dd>
+
+  <dt class="term" data-synonyms="Empty Part, Empty Pairs, Empty Parts">Empty Pair</dt>
+  <dd class="definition">
+    <p>An *empty pair* is a pair of rows in a **Count Table** with counts
+$n$ and $-n$ that together form a net-zero contribution to all
+**Selections**, **Linkings**, and **Shape**. A finite union of
+empty pairs that yields net zero counts on all rows is an *empty part*.
+Adding an empty part to any structure does not change its **Relative
+Identities**, **Worlds**, or **Shape**. In GA, an empty part is a
+multivector that is identically zero, built from terms $B + (-B)$.</p>
+  </dd>
+
+  <dt class="term" data-synonyms="Interferences">Interference</dt>
+  <dd class="definition">
+    <p>*Interference* is the phenomenon that occurs when **Negative Counts**
+and positive counts in a **Count Table** combine into **Empty
+Pairs**, thereby changing the pattern of non-empty rows under
+**Selections** and **Linkings** without altering **Shape**. In
+GA, interference is just addition of multivectors in which some blades cancel.</p>
+  </dd>
+
+  <dt class="term" data-synonyms="Shapes">Shape</dt>
+  <dd class="definition">
+    <p>The *shape* of a **Structure Table** is the class of all tables that
+can be obtained from it by permutations of rows, columns, and value indices
+that preserve the pattern of **Count Tables**, **Empty Parts**,
+**Relative Identities**, and **Relation-numbers**. Thus, shape is
+the global structural invariant of a table under all allowed relabelings. In
+GA, shape is the orbit of a multivector under the automorphism group that
+preserves all structural operations. (In Principia Mathematica this was *incorrectly* called **Relation Number** which is, in geometric analogy, congruence rather than mere similarity of shapes.).</p>
+  </dd>
+
+  <dt class="term" data-synonyms="Relation Number, Relation-numbers, Relation Numbers">Relation-number</dt>
+  <dd class="definition">
+    <p>The *relation-number* of a part of a **Structure Table** is the
+number of distinct occurrences of that part in the same **Shape** when we
+apply all permutations that preserve **Relative Identity** and the
+**Count Table** structure. It measures structured recurrence of parts
+within a shape. In GA, a relation-number is the size of the orbit of a
+sub-multivector under the automorphisms that fix the ambient shape.</p>
+  </dd>
+
+  <dt class="term" data-synonyms="Selections">Selection</dt>
+  <dd class="definition">
+    <p>A *selection* is an operation that takes a **Structure Table** and
+designates some of its rows and columns as *foreground*, leaving the rest
+as *background*. Selections generate the frames of a **Structural
+Time** sequence and determine which parts of a structure a **Discriminator**
+actually uses to fix **Relative Identity**. In GA, selections are
+projectors onto subspaces spanned by chosen blades.</p>
+  </dd>
+
+  <dt class="term" data-synonyms="Linkings">Linking</dt>
+  <dd class="definition">
+    <p>*Linking* is the operation that imposes equality conditions between
+columns (or rows) of one or more **Structure Tables**, by deleting all
+rows that violate these equalities and then re-indexing the resulting
+**Count Table**. Linking thus creates joint structures and defines the
+``present'' interface between past and future in **Structural Time**. In
+GA, linking is projection onto the subspace where linked indices coincide.</p>
+  </dd>
+
+  <dt class="term" data-synonyms="Hidings">Hiding</dt>
+  <dd class="definition">
+    <p>*Hiding* is the operation that removes columns or rows that have been used
+in **Linking** but are no longer of interest to a given
+**Discriminator**. Hiding preserves **Relative Identity** on the
+remaining variables while marginalizing out the hidden ones, within the same
+**Shape**. In GA, hiding corresponds to partial trace or projection that
+forgets certain indices.</p>
+  </dd>
+
+  <dt class="term" data-synonyms="Structural Times">Structural Time</dt>
+  <dd class="definition">
+    <p>*Structural time* is the ordering of **Selections**, **Linkings**
+and **Hidings** applied to **Structure Tables** and **Density
+Count Matrices**, rather than an external parameter. A *dynamic sequence*
+is a finite or infinite chain of such operations, possibly governed by a
+**Structural Evolution Operator**. In GA, structural time is encoded by
+the composition order of projectors and linear operators on multivectors.</p>
+  </dd>
+
+  <dt class="term" data-synonyms="Structural Evolution Operators">Structural Evolution Operator</dt>
+  <dd class="definition">
+    <p>A *structural evolution operator* $T$ is a map that sends **Structure
+Tables** and their corresponding **Density Count Matrices** to new ones in a
+way that respects **Shape**, **Relative Identity**, and the
+**Empty Part** bookkeeping. When $T$ is invertible and satisfies
+**Structural Unitarity**, it generates reversible **Structural Time**.
+In GA, $T$ is a linear operator (often unitary) acting on the space of
+multivectors and their density operators.</p>
+  </dd>
+
+  <dt class="term" data-synonyms="Structural Unitarities">Structural Unitarity</dt>
+  <dd class="definition">
+    <p>A *structurally unitary* evolution is one in which a **Structural
+Evolution Operator** $T$ preserves the total ``count-mass'' and the normalization
+of **Density Count Matrices**, i.e.\ it preserves all structural
+probabilities. Structural unitarity thus ties the reversible part of
+**Structural Time** to invariants of **Shape** and **Relative
+Identity**. In GA, structural unitarity is realized by norm-preserving linear
+operators (unitary or orthogonal) on the state space.</p>
+  </dd>
+
+  <dt class="term" data-synonyms="Past--Future Symmetries">Past--Future Symmetry</dt>
+  <dd class="definition">
+    <p>A system has *past--future symmetry* when its **Structural Time**
+evolution admits a **Structural Evolution Operator** $T$ and an inverse
+$T^{-1}$ such that the corresponding **Density Count Matrices** and
+**Relative Identities** are invariant under reversing the order of
+applications of $T$ (modulo **Empty Parts**). In this domain, quantum-like
+**Interference** and **Structural Unitarity** dominate. In GA, this
+is realized when the dynamics is given by a unitary family $T(t)$ and its
+adjoint $T(t)^{-1}$, with symmetry under time reversal.</p>
+  </dd>
+
+</dl>
   
   <!-- Load the glossary hovercards module -->
   <script src="glossary-hovercards.js"></script>

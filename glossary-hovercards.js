@@ -36,9 +36,26 @@ class GlossaryHovercards {
     for (let i = 0; i < terms.length; i++) {
       const term = terms[i].textContent.trim();
       const definition = definitions[i].innerHTML;
-      this.glossaryData.set(term.toLowerCase(), {
+      
+      // Get synonyms from data attribute (comma-separated)
+      const synonymsAttr = terms[i].dataset.synonyms || '';
+      const synonyms = synonymsAttr
+        .split(',')
+        .map(s => s.trim().toLowerCase())
+        .filter(s => s.length > 0);
+      
+      // Add the main term and all synonyms as keys pointing to the same entry
+      const entry = {
         term: term,
         definition: definition
+      };
+      
+      // Store under main term (lowercase)
+      this.glossaryData.set(term.toLowerCase(), entry);
+      
+      // Store under each synonym
+      synonyms.forEach(synonym => {
+        this.glossaryData.set(synonym, entry);
       });
     }
   }
@@ -69,7 +86,8 @@ class GlossaryHovercards {
             );
           }
           
-          const term = match[1];
+          // Normalize whitespace in the term (collapse newlines and multiple spaces)
+          const term = match[1].replace(/\s+/g, ' ').trim();
           const span = document.createElement('span');
           span.className = 'glossary-term';
           span.textContent = term;
